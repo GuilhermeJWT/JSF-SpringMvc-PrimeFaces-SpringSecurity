@@ -5,12 +5,16 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.systemsgs.config.JdbcTemplateImpl;
+import br.com.systemsgs.config.SimpleJdbcClassImpl;
+import br.com.systemsgs.config.SimpleJdbcTemplateImpl;
 import br.com.systemsgs.connection.HibernateUtilConnection;
 
 @Component
@@ -18,8 +22,20 @@ import br.com.systemsgs.connection.HibernateUtilConnection;
 public class ImplementationMethodsResource<G> implements InterfaceMethodsImpl<G> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private static SessionFactory sessionFactory = HibernateUtilConnection.getSessionFactory();
+
+	@Autowired
+	private JdbcTemplateImpl jdbcTemplateImpl;
+
+	@Autowired
+	private SimpleJdbcTemplateImpl simpleJdbcTemplateImpl;
+
+	@Autowired
+	private SimpleJdbcInsert simpleJdbcInsertImpl;
+	
+	@Autowired
+	private SimpleJdbcClassImpl simpleJdbcClassImpl;
 
 	@Override
 	public void save(G obj) throws Exception {
@@ -131,4 +147,24 @@ public class ImplementationMethodsResource<G> implements InterfaceMethodsImpl<G>
 		return null;
 	}
 
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public JdbcTemplateImpl getJdbcTemplateImpl() {
+		return jdbcTemplateImpl;
+	}
+
+	public SimpleJdbcTemplateImpl getSimpleJdbcTemplateImpl() {
+		return simpleJdbcTemplateImpl;
+	}
+
+	public SimpleJdbcInsert getSimpleJdbcInsertImpl() {
+		return simpleJdbcInsertImpl;
+	}
+
+	public SimpleJdbcClassImpl getSimpleJdbcClassImpl() {
+		return simpleJdbcClassImpl;
+	}
+	
 }
