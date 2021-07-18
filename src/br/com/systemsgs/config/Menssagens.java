@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 
 import br.com.systemsgs.enums.StatusPersistencia;
 
-public abstract class Messagens extends FacesContext implements Serializable{
+public abstract class Menssagens extends FacesContext implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -69,7 +69,7 @@ public abstract class Messagens extends FacesContext implements Serializable{
 		return FacesContext.getCurrentInstance();
 	}
 	
-	public Messagens() {
+	public Menssagens() {
 		
 	}
 
