@@ -2,7 +2,7 @@ package br.com.systemsgs.config;
 
 import java.io.Serializable;
 
-public class MenssageResource implements Serializable{
+public class MensageResource implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	

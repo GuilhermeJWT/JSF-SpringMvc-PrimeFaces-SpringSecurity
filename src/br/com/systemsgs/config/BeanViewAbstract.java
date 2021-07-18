@@ -80,12 +80,12 @@ public abstract class BeanViewAbstract implements ActionView {
 
 	@Override
 	public void statusOperation(StatusPersistencia status) throws Exception {
-		Menssagens.responseOperation(status);
+		Mensagens.responseOperation(status);
 	}
 
 	@Override
 	public void addMsg(String msg) {
-		Menssagens.msg(msg);
+		Mensagens.msg(msg);
 	}
 
 }
